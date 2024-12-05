@@ -1,6 +1,6 @@
 [package]
 name = "hip-rs"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 authors = ["Anders Smedegaard Pedersen <anders@smedegaard.io>"]
 description = "A Rust wrapper for AMD's Heterogeneous-computing Interface for Portability (HIP), used for GPU interop."
