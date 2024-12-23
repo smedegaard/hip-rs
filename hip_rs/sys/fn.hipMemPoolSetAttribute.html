@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="@brief Sets attributes of a memory pool"><title>hipMemPoolSetAttribute in hip_rs::sys - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b0742ba02757f159.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="hip_rs" data-themes="" data-resource-suffix="" data-rustdoc-version="1.83.0 (90b35a623 2024-11-26)" data-channel="1.83.0" data-search-js="search-f0d225181b97f9a4.js" data-settings-js="settings-805db61a62df4bd2.js" ><script src="../../static.files/storage-1d39b6787ed640ff.js"></script><script defer src="sidebar-items.js"></script><script defer src="../../static.files/main-f070b9041d14864c.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-0111fcff984fae8f.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc fn"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle" title="show sidebar"></button></nav><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../../hip_rs/index.html">hip_rs</a><span class="version">0.2.0</span></h2></div><div class="sidebar-elems"><div id="rustdoc-modnav"><h2><a href="index.html">In hip_<wbr>rs::<wbr>sys</a></h2></div></div></nav><div class="sidebar-resizer"></div><main><div class="width-limiter"><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="main-heading"><span class="rustdoc-breadcrumbs"><a href="../index.html">hip_rs</a>::<wbr><a href="index.html">sys</a></span><h1>Function <span class="fn">hipMemPoolSetAttribute</span><button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../../src/hip_rs/home/anders/actions-runner/_work/hip-rs/hip-rs/target/debug/build/hip-rs-54857fe0005e6542/out/hip_sys.rs.html#10234-10238">source</a> </span></div><pre class="rust item-decl"><code>pub unsafe extern &quot;C&quot; fn hipMemPoolSetAttribute(
+    mem_pool: <a class="type" href="../core/sys/type.hipMemPool_t.html" title="type hip_rs::core::sys::hipMemPool_t">hipMemPool_t</a>,
+    attr: <a class="type" href="../core/sys/type.hipMemPoolAttr.html" title="type hip_rs::core::sys::hipMemPoolAttr">hipMemPoolAttr</a>,
+    value: <a class="primitive" href="https://doc.rust-lang.org/1.83.0/std/primitive.pointer.html">*mut </a><a class="type" href="https://doc.rust-lang.org/1.83.0/std/os/raw/type.c_void.html" title="type std::os::raw::c_void">c_void</a>,
+) -&gt; <a class="type" href="../core/sys/type.hipError_t.html" title="type hip_rs::core::sys::hipError_t">hipError_t</a></code></pre><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>@brief Sets attributes of a memory pool</p>
+<p>Supported attributes are:</p>
+<ul>
+<li>@p hipMemPoolAttrReleaseThreshold: (value type = cuuint64_t)
+Amount of reserved memory in bytes to hold onto before trying
+to release memory back to the OS. When more than the release
+threshold bytes of memory are held by the memory pool, the
+allocator will try to release memory back to the OS on the
+next call to stream, event or context synchronize. (default 0)</li>
+<li>@p hipMemPoolReuseFollowEventDependencies: (value type = int)
+Allow @p hipMallocAsync to use memory asynchronously freed
+in another stream as long as a stream ordering dependency
+of the allocating stream on the free action exists.
+HIP events and null stream interactions can create the required
+stream ordered dependencies. (default enabled)</li>
+<li>@p hipMemPoolReuseAllowOpportunistic: (value type = int)
+Allow reuse of already completed frees when there is no dependency
+between the free and allocation. (default enabled)</li>
+<li>@p hipMemPoolReuseAllowInternalDependencies: (value type = int)
+Allow @p hipMallocAsync to insert new stream dependencies
+in order to establish the stream ordering required to reuse
+a piece of memory released by @p hipFreeAsync (default enabled).</li>
+</ul>
+<p>@param [in] mem_pool The memory pool to modify
+@param [in] attr     The attribute to modify
+@param [in] value    Pointer to the value to assign</p>
+<p>@returns #hipSuccess, #hipErrorInvalidValue</p>
+<p>@see hipMallocFromPoolAsync, hipMallocAsync, hipFreeAsync, hipMemPoolGetAttribute,
+hipMemPoolTrimTo, hipDeviceSetMemPool, hipMemPoolSetAccess, hipMemPoolGetAccess</p>
+<p>@warning : This API is marked as beta, meaning, while this is feature complete,
+it is still open to changes and may have outstanding issues.</p>
+<p>@note  This API is implemented on Linux, under development on Windows.</p>
+</div></details></section></div></main></body></html>

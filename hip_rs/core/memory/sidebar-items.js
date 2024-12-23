@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["MemAllocationHandleType","MemAllocationType","MemLocationType","MemoryCopyKind"],"fn":["memory_copy","to_void_pointer"],"struct":["MemLocation","MemPool","MemPoolProps","MemoryPointer"]};

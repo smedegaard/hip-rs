@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["get_device","get_device_by_pci_bus_id","get_device_count","get_device_p2p_attribute","set_device","synchronize"],"struct":["Device"]};

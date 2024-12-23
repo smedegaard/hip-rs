@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["decode_hip_version","initialize","runtime_get_version"]};
